@@ -16,3 +16,7 @@ data_*/
 .vscode
 .idea
 *.iml
+
+# Other
+release/
+
