@@ -15,6 +15,7 @@ func enter(_data):
 	anima.then({node=o.sprite, animation="tada", duration=0.9})
 	anima.then({node=o.sprite, property="x", to=1000, duration=0.9})
 	anima.play()
+	print(Utils.random_choice([1,2,3]))
 
 func update(_delta):
 	var a = Easing.Cubic.easeOut(Time.since(ts_started), 1, -0.7, Constants.DURATION)
