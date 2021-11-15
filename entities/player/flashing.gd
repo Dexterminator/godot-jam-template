@@ -1,7 +1,6 @@
 extends "res://entities/player/player_state.gd"
 
 onready var Easing = preload("res://utils/easing.gd")
-const DURATION = 3.0
 var ts_started
 
 func _hello():
@@ -18,7 +17,7 @@ func enter(_data):
 	anima.play()
 
 func update(_delta):
-	var a = Easing.Cubic.easeOut(Time.since(ts_started), 1, -0.7, DURATION)
+	var a = Easing.Cubic.easeOut(Time.since(ts_started), 1, -0.7, Constants.DURATION)
 	o.sprite.modulate = Color(1, 1, 1, a)
 
 func exit():
