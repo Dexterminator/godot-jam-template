@@ -67,6 +67,7 @@ Slowdown="*res://utils/slowdown.gd"
 Shake="*res://utils/shake.gd"
 Anima="*res://addons/anima/core/anima.gd"
 Utils="*res://utils/utils.gd"
+SceneChanger="*res://utils/scene_changer/SceneChanger.tscn"
 
 [display]
 

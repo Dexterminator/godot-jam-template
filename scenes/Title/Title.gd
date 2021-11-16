@@ -10,8 +10,7 @@ func _ready():
 	selected_color = selections[0].modulate
 
 func _start_game():
-	set_process(false)
-	get_tree().change_scene("res://scenes/Main/Main.tscn")
+	SceneChanger.change_scene(self, "res://scenes/Main/Main.tscn")
 
 func _start_tutorial():
 	print("Start tutorial")
