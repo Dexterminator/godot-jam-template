@@ -9,12 +9,12 @@ func _hello():
 
 func enter(_data):
 	ts_started = Time.now
-	var anima := Anima.begin(self)
-	anima.connect("animation_completed", self, "_hello")
-	anima.then({node=o.sprite, animation="shake", duration=0.7})
-	anima.then({node=o.sprite, animation="tada", duration=0.9})
-	anima.then({node=o.sprite, property="x", to=1000, duration=0.9})
-	anima.play()
+	var a := Anima.begin(self)
+	a.connect("animation_completed", self, "_hello")
+	a.then({node=o.sprite, animation="shake", duration=0.7})
+	a.then({node=o.sprite, animation="tada", duration=0.9})
+	a.then({node=o.sprite, property="x", to=1000, duration=0.9})
+	a.play()
 	print(Utils.random_choice([1,2,3]))
 
 func update(_delta):
