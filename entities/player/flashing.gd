@@ -12,8 +12,9 @@ func enter(_data):
 	var a := Anima.begin(self)
 	a.connect("animation_completed", self, "_hello")
 	a.then({node=o.sprite, animation="shake", duration=0.7})
-	a.then({node=o.sprite, animation="tada", duration=0.9})
-	a.then({node=o.sprite, property="x", to=1000, duration=0.9})
+	a.then({node=o.sprite, property="x", to=500, duration=0.9, easing=AnimaEasing.EASING.EASE_IN_OUT})
+	a.then({node=o.sprite, property="material:shader_param/flash_strength", to=1, duration=0.3})
+	a.then({node=o.sprite, property="material:shader_param/flash_strength", to=0, duration=0.3})
 	a.play()
 	print(Utils.random_choice([1,2,3]))
 
