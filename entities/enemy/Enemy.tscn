@@ -6,6 +6,7 @@
 [ext_resource path="res://entities/enemy/Enemy.gd" type="Script" id=4]
 
 [node name="Enemy" type="Sprite"]
+modulate = Color( 1, 0.372549, 0.372549, 1 )
 material = ExtResource( 3 )
 texture = ExtResource( 1 )
 script = ExtResource( 4 )

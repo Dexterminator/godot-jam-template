@@ -3,6 +3,10 @@ extends CanvasLayer
 onready var black = $Black
 onready var tween = $Tween
 const DURATION = 0.2
+var current_scene
+
+func _ready():
+	current_scene = get_tree().get_current_scene()
 
 func change_scene(current_scene_node, path, data = null):
 	tween.interpolate_property(black, "modulate", Color(1,1,1,0), Color.white, DURATION)
@@ -16,5 +20,6 @@ func change_scene(current_scene_node, path, data = null):
 	if data:
 		scene.data = data
 	root.add_child(scene)
+	current_scene = scene
 	tween.interpolate_property(black, "modulate", Color.white, Color(1,1,1,0), DURATION)
 	tween.start()
