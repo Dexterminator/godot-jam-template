@@ -16,6 +16,8 @@ func enter(_data):
 	Utils.spawn(Enemy, o.global_position + Vector2.RIGHT * 100)
 	Shake.add_trauma(0.7)
 	Slowdown.start(0.2)
+	o.spawn_count += 1
+	Events.emit_signal("spawn_count_updated", o.spawn_count)
 	print(Utils.random_choice([1,2,3]))
 
 func update(delta):

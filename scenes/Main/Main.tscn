@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Main/Main.gd" type="Script" id=2]
 [ext_resource path="res://utils/ShakeCamera2D.gd" type="Script" id=3]
-[ext_resource path="res://fonts/raleway36.tres" type="DynamicFont" id=4]
+[ext_resource path="res://utils/Gui/Gui.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/enemy/Enemy.tscn" type="PackedScene" id=5]
-
-[sub_resource type="Theme" id=1]
-default_font = ExtResource( 4 )
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -37,48 +34,8 @@ script = ExtResource( 3 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 482.225, 314.279 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-theme = SubResource( 1 )
-custom_constants/separation = 18
-
-[node name="ShakeButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-margin_right = 145.0
-margin_bottom = 64.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Shake"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SlowButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-margin_left = 163.0
-margin_right = 281.0
-margin_bottom = 64.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Slow"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ExitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-margin_left = 299.0
-margin_right = 387.0
-margin_bottom = 64.0
-text = "Exit"
-flat = true
+[node name="Gui" parent="." instance=ExtResource( 4 )]
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 material = SubResource( 3 )
 position = Vector2( 633, 566 )
-
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/ShakeButton" to="." method="_on_ShakeButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/SlowButton" to="." method="_on_SlowButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
