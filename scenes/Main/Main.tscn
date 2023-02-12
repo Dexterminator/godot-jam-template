@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Main/Main.gd" type="Script" id=2]
@@ -8,6 +8,23 @@
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 4 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_strength : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_strength);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = SubResource( 2 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_strength = 0.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -62,6 +79,7 @@ text = "Exit"
 flat = true
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
+material = SubResource( 3 )
 position = Vector2( 633, 566 )
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ShakeButton" to="." method="_on_ShakeButton_pressed"]

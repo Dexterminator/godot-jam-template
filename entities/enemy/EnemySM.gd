@@ -8,10 +8,6 @@ func chilling(_delta):
 		start_moving()
 
 func start_moving():
-	var a = Anima.begin(self)
-	a.then({node=o, property="material:shader_param/flash_strength", to=1, duration=0.5})
-	a.then({node=o, property="material:shader_param/flash_strength", to=0, duration=0.5})
-	a.play()
 	_change_state("moving", {"direction": Vector2.RIGHT if randf() > 0.5 else Vector2.LEFT})	
 
 func moving(delta):

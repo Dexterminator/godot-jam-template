@@ -9,31 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
-"class": "AnimaEasing",
-"language": "GDScript",
-"path": "res://addons/anima/core/easings.gd"
-}, {
-"base": "Node",
-"class": "AnimaNode",
-"language": "GDScript",
-"path": "res://addons/anima/core/node.gd"
-}, {
-"base": "Reference",
-"class": "AnimaNodesProperties",
-"language": "GDScript",
-"path": "res://addons/anima/utils/node_properties.gd"
-}, {
-"base": "Reference",
-"class": "AnimaStrings",
-"language": "GDScript",
-"path": "res://addons/anima/utils/strings.gd"
-}, {
-"base": "Tween",
-"class": "AnimaTween",
-"language": "GDScript",
-"path": "res://addons/anima/core/tween.gd"
-}, {
 "base": "Node",
 "class": "Constants",
 "language": "GDScript",
@@ -50,11 +25,6 @@ _global_script_classes=[ {
 "path": "res://utils/ShakeCamera2D.gd"
 } ]
 _global_script_class_icons={
-"AnimaEasing": "",
-"AnimaNode": "",
-"AnimaNodesProperties": "",
-"AnimaStrings": "",
-"AnimaTween": "",
 "Constants": "",
 "Set": "",
 "ShakeCamera2D": ""
@@ -71,9 +41,9 @@ config/icon="res://icon.png"
 Time="*res://utils/time.gd"
 Slowdown="*res://utils/slowdown.gd"
 Shake="*res://utils/shake.gd"
-Anima="*res://addons/anima/core/anima.gd"
 Utils="*res://utils/utils.gd"
 SceneChanger="*res://utils/scene_changer/SceneChanger.tscn"
+ANIMA="*res://addons/anima/core/constants.gd"
 
 [display]
 
