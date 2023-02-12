@@ -1,1 +1,3 @@
-extends "res://utils/state.gd"
+extends State
+
+onready var o : Player = owner

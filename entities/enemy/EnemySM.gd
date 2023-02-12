@@ -1,16 +1,18 @@
-extends "res://utils/simple_state_machine.gd"
+extends SimpleStateMachine
+
+onready var o : Enemy = owner
 
 func _ready():
-	_change_state("chilling")
+	transition_to("state_chilling")
 
-func chilling(_delta):
+func state_chilling(_delta):
 	if Time.exceeded(ts_started_state, 2):
-		start_moving()
+		start_state_moving()
 
-func start_moving():
-	_change_state("moving", {"direction": Vector2.RIGHT if randf() > 0.5 else Vector2.LEFT})	
+func start_state_moving():
+	transition_to("state_moving", {"direction": Vector2.RIGHT if randf() > 0.5 else Vector2.LEFT})	
 
-func moving(delta):
+func state_moving(delta):
 	o.global_position += 100 * delta * data.direction
 	if Time.exceeded(ts_started_state, 2):
-		_change_state("chilling")
+		transition_to("state_chilling")

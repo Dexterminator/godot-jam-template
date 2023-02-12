@@ -15,7 +15,7 @@ default_font = SubResource( 1 )
 size = 100
 font_data = ExtResource( 2 )
 
-[node name="Node" type="Node"]
+[node name="Title" type="Node"]
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]

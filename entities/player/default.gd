@@ -5,7 +5,7 @@ var direction = Vector2.ZERO
 
 func update(_delta):
 	if Input.is_action_just_pressed("action1"):
-		emit_signal("transition", "fading", {})
+		transition_to("fading")
 	elif Input.is_action_pressed("left"):
 		direction = Vector2.LEFT
 	elif Input.is_action_pressed("right"):

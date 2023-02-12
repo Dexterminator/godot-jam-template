@@ -8,7 +8,7 @@ var states_map = {}
 
 func initialize(start_state_name):
 	for state in get_children():
-		state.connect("transition", self, "change_state")
+		state.state_machine = self
 		states_map[state.name] = state
 	current_state_name = start_state_name
 	current_state = states_map[start_state_name]
@@ -17,7 +17,7 @@ func initialize(start_state_name):
 func _physics_process(delta):
 	current_state.update(delta)
 
-func change_state(state_name, data):
+func transition_to(state_name, data = {}):
 	print(state_name)
 	var previous_state_name = current_state_name
 	current_state.exit()

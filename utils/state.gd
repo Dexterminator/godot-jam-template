@@ -1,8 +1,9 @@
 extends Node
+class_name State
 
 # warning-ignore:unused_signal
 signal transition(next_state_name)
-onready var o = owner
+var state_machine
 
 func enter(_data):
 	pass
@@ -13,17 +14,5 @@ func exit():
 func update(_delta):
 	pass
 
-func on_hurtbox_entered(_area):
-	pass
-
-func on_hitbox_entered(_area):
-	pass
-
-func on_anim_finished(_anim_name):
-	pass
-
-func on_viewport_entered(_viewport):
-	pass
-
-func on_body_entered(_body):
-	pass
+func transition_to(state_name, data = {}):
+	state_machine.transition_to(state_name, data)

@@ -4,7 +4,7 @@ var ts_started
 
 func _hello():
 	print("hello")
-	emit_signal("transition", "default", {})
+	transition_to("default")
 
 func enter(_data):
 	ts_started = Time.now
