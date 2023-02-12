@@ -14,6 +14,8 @@ func enter(_data):
 	tween.tween_property(o.sprite, "material:shader_param/flash_strength", 0.0, 0.3)
 	tween.tween_callback(self, "_hello")
 	Utils.spawn(Enemy, o.global_position + Vector2.RIGHT * 100)
+	Shake.add_trauma(0.7)
+	Slowdown.start(0.2)
 	print(Utils.random_choice([1,2,3]))
 
 func update(delta):
